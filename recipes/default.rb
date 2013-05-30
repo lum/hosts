@@ -20,4 +20,5 @@ end
 file "/etc/hostname" do
   content "#{node[:fqdn]}"
   notifies :run, resources(:execute => "hostname --file /etc/hostname"), :immediately
+  ignore_failure true
 end
