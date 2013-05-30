@@ -1,13 +1,9 @@
-127.0.0.1 <%= @node['fqdn'] %> <%= @node['hostname'] %> localhost <%= @node[:hosts][:localhost_aliases].join(" ") if @node[:hosts][:localhost_aliases] %>
+127.0.0.1 <%= @node['fqdn'] %> <%= @node['hostname'] %> localhost
 
-<% @hosts.each do |host| %>
-  <% if host[:segment] == node[:segment] %>
-    <% if host.has_key?("cloud") %>
-      <%= host[:cloud][:public_ipv4] %> <%= host[:fqdn] %> <%= host['hostname'] %>
-    <% else %>
-      <%= host['ipaddress'] %> <%= host['fqdn'] %> <%= host['hostname'] %>
-    <% end %>
-  <% end %>
+<% if host.has_key?("cloud") %>
+  <%= host[:cloud][:public_ipv4] %> <%= host[:fqdn] %> <%= host['hostname'] %>
+<% else %>
+  <%= host['ipaddress'] %> <%= host['fqdn'] %> <%= host['hostname'] %>
 <% end %>
 
 # The following lines are desirable for IPv6 capable hosts
