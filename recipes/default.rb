@@ -18,7 +18,7 @@ execute "hostname --file /etc/hostname" do
 end
 
 file "/etc/hostname" do
-  content "#{node[:fqdn]}"
+  content "#{node['host_name']}"
   notifies :run, resources(:execute => "hostname --file /etc/hostname"), :immediately
   ignore_failure true
 end
