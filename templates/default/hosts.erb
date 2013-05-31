@@ -3,7 +3,7 @@
 <% if node.has_key?("cloud") %>
   <%= node[:cloud][:public_ipv4] %> <%= node[:fqdn] %> <%= node['hostname'] %>
 <% else %>
-  <%= node['ipaddress'] %> <%= node['fqdn'] %> <%= node['hostname'] %>
+  <%= node['ipaddress'] %> <%= node['fqdn'] %> <%= node['hostname'] %> <%= node['name'] %>
 <% end %>
 
 # The following lines are desirable for IPv6 capable hosts
