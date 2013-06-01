@@ -1,4 +1,4 @@
-127.0.0.1 <%= @node['fqdn'] %> <%= @node['hostname'] %> localhost
+127.0.0.1 localhost
 
 <% if node.has_key?("cloud") %>
   <%= node[:cloud][:public_ipv4] %> <%= node[:fqdn] %> <%= node['hostname'] %>
