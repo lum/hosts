@@ -1,7 +1,7 @@
 127.0.0.1 localhost
 
-<% if node.has_key?("cloud") %>
-  <%= node[:cloud][:public_ipv4] %> <%= node[:fqdn] %> <%= node['hostname'] %>
+<% if node.has_key?("ec2") %>
+  <%= node['cloud']['local_ipv4'] %> <%= node['fqdn'] %> <%= node['hostname'] %>
 <% else %>
   <%= node['ipaddress'] %> <%= node['fqdn'] %> <%= node['hostname'] %> <%= node['name'] %>
 <% end %>
