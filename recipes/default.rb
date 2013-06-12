@@ -15,7 +15,7 @@ end
 
 
 new_hostname = "#{node['name']}"
-new_fqdn = "#{new_hostname}.tempo.ai"
+new_fqdn = "#{new_hostname}.#{node['cluster']}.tempo.ai"
 
 execute "hostname --file /etc/hostname" do
   action :nothing
