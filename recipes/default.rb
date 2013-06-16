@@ -22,7 +22,7 @@ execute "hostname --file /etc/hostname" do
 end
 
 file "/etc/hostname" do
-  content "#{node['name']}"
+  content "#{node['name']}.#{node['cluster']}.tempo.ai"
   notifies :run, resources(:execute => "hostname --file /etc/hostname"), :immediately
   ignore_failure true
 end
