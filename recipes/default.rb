@@ -1,18 +1,20 @@
 #
 # Cookbook Name:: hosts
-# Recipe:: client
+# Recipe:: default
+# Author:: Steve Lum <steve.lum@gmail.com>
 #
 # Copyright 2013, Tempo
 #
-#
+
+hosts = search(:node, "chef_environment:#{node.chef_environment}")
 
 template "/etc/hosts" do
   source "hosts.erb"
   owner "root"
   group "root"
   mode 0644
+  variables(:hosts => hosts)
 end
-
 
 new_hostname = "#{node['name']}"
 new_fqdn = "#{new_hostname}.#{node['cluster']}.tempo.ai"
