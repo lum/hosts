@@ -8,6 +8,8 @@
 
 if !Chef::Config[:solo]
 	hosts = search(:node, "chef_environment:#{node.chef_environment}")
+else
+  hosts = localhost
 end
 
 template "/etc/hosts" do
