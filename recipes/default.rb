@@ -6,7 +6,9 @@
 # Copyright 2013, Tempo
 #
 
-hosts = search(:node, "chef_environment:#{node.chef_environment}")
+if !Chef::Config[:solo]
+	hosts = search(:node, "chef_environment:#{node.chef_environment}")
+end
 
 template "/etc/hosts" do
   source "hosts.erb"

@@ -1,4 +1,4 @@
-maintainer        "37signals"
-maintainer_email  "sysadmins@37signals.com"
+maintainer        "Steve Lum"
+maintainer_email  "steve@tempo.ai"
 description       "Configures hosts"
-version           "0.1.9"
+version           "0.2.0"
